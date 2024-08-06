@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        function doLogin() {
+            document.sendin.username.value = document.login.username.value;
+            document.sendin.password.value = hexMD5('$(chap-id)' + document.login.password.value + '$(chap-challenge)');
+            document.sendin.submit();
+            return false;
+        }
+    </script>
+    <script type="text/javascript">
+        function formAutoSubmit () {
+            var frm = document.getElementById("login");
+            document.getElementById("login").submit();
+            frm.submit();
+        }
+        window.onload =setTimeout(formAutoSubmit, 500);
+    </script>
+
+    <form id="login" name="login" action="http://empresawireless.com/login" method="post" onSubmit="return doLogin()">
+      <input type="hidden" name="username" value="Visitantes" />
+      <input type="hidden" name="password" value="" />
+      <input type="hidden" name="popup" value="false" />
+      <input type="hidden" name="dst" value="" />
+    </form>
+</body>
+</html>

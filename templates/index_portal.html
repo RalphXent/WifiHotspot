@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="/static/css/Portal_Home/fonts/icomoon/style.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="/static/css/Portal_Home/css/owl.carousel.min.css"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="/static/css/Portal_Home/css/bootstrap.min.css"
+    />
+
+    <!-- Style -->
+    <link rel="stylesheet" href="/static/css/Portal_Home/css/style.css" />
+
+    <title>Table #6</title>
+  </head>
+  <body>
+    
+    <div class="content">
+      <div class="container">
+        <nav class="navtop">
+          <div>
+            <a href="{{ url_for('home') }}"><i class="fas fa-home"></i>Home</a>
+            <a href="{{ url_for('profile') }}"><i class="fas fa-user-circle"></i>Profile</a>
+            <a href="{{ url_for('logout_user') }}"><i class="fas fa-sign-out-alt"></i>Logout</a>
+          </div>
+        </nav>
+        <hr>
+
+        <h2 class="mb-5">Table #6</h2>
+
+        <input
+          type="text"
+          id="myInput"
+          onkeyup="myFunction()"
+          placeholder="Search for names.."
+        />
+
+        <div class="table-responsive">
+          <table id="myTable" class="table table-striped custom-table">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nombre y Apellido</th>
+                <th scope="col">Correo Electrónico</th>
+                <th scope="col">Número de Teléfono</th>
+                <th scope="col">Cuenta Creada</th>
+                <th scope="col">Última Sesión</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for cliente in clientes %}
+              <tr>
+                <td>#{{ cliente.Id }}</td>
+                <td><a href="#">{{ cliente.Name }}</a></td>
+                <td>
+                  {{ cliente.Email }}
+                  <small class="d-block"
+                    >Far far away, behind the word mountains</small
+                  >
+                </td>
+                <td>{{ cliente.Phone_Number }}</td>
+                <td>{{ cliente.Date_Created }}</td>
+                <td>{{ cliente.Last_Login }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function myFunction() {
+        // Declare variables
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+
+        // Loop through all table rows, and hide those who don't match the search query
+        for (i = 0; i < tr.length; i++) {
+          td = tr[i].getElementsByTagName("td")[1];
+          if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+              tr[i].style.display = "";
+            } else {
+              tr[i].style.display = "none";
+            }
+          } 
+        }
+      }
+    </script>
+
+    <script src="/static/css/Portal_Home/js/jquery-3.3.1.min.js"></script>
+    <script src="/static/css/Portal_Home/js/popper.min.js"></script>
+    <script src="/static/css/Portal_Home/js/bootstrap.min.js"></script>
+    <script src="/static/css/Portal_Home/js/main.js"></script>
+  </body>
+</html>

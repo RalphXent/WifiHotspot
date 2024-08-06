@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="expires" content="-1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Internet hotspot - Iniciar Sesion</title>
+    <!-- Including CSS file-->
+    <link rel="stylesheet" href="/static/css/Wifi_Login/style.css">
+    <!-- Including Javascript file-->
+    <script src="/static/js/script.js"></script>
+
+</head>
+
+<body>
+
+    <!-- two other colors
+
+<body class="lite">
+<body class="dark">
+
+-->
+
+    
+    <div class="ie-fixMinHeight">
+        <div class="main">
+            <div class="wrap animated fadeIn">
+                <form id="login-form" name="login" action="{{url_for('add_record')}}" method="post" $(if chap-id) onSubmit="return doLogin()" $(endif)>
+                    <input type="hidden" name="dst" value="$(link-orig)" />
+                    <input type="hidden" name="popup" value="true" />
+                    <img class="logo" data-name="Layer 1" src="/static/img/WifiLogo02.png" viewBox="0 0 174 42"></img>
+
+                    <p class="info $(if error)alert$(endif)">
+                        Por favor inicia sesion para utilizar el servicio de internet<br />
+                        
+                    </p>
+                    <input type="hidden" name="Mac" value="$(mac)">
+                    <label>
+                        <img class="ico" src="/static/img/user.svg" alt="#" />
+                        <input name="username" type="hidden" value="Visitantes" placeholder="Nombre y Apellido" />
+                    </label>
+
+                    <label>
+                        <img class="ico" src="/static/img/user.svg" alt="#" />
+                        <input name="Name" type="text" placeholder="Nombre y Apellido" required/>
+                    </label>
+
+                    <label>
+                        <img class="ico" src="/static/img/mail.svg" alt="#" />
+                        <input name="password" type="hidden" placeholder="password" />
+                    </label>
+
+                    <label>
+                        <img class="ico" src="/static/img/mail.svg" alt="#" />
+                        <input name="Email" type="email" placeholder="Correo Electrónico" required/>
+                    </label>
+
+                    <label>
+                        <img class="ico" src="/static/img/phone.svg" alt="#" />
+                        <input name="Phone_Number" type="tel" placeholder="Número Telefónico" pattern="[0-9]{11}" required/>
+                    </label>
+                    
+                    <p class="info">
+                        Al hacer click en conectar acepta todos los 
+                        <a href="/static/html/terms.html" target="popup" onclick="event.preventDefault(); window.open(href, 'popup', 'width=auto,height=600px');">
+                        <strong><code>Términos y Condiciones</code></strong>
+                        </a>, además de la
+                        <a href="/static/html/privacy.html" target="popup" onclick="event.preventDefault(); window.open(href, 'popup', 'width=auto,height=600px');">
+                        <strong><code>Política de Privacidad</code></strong>
+                        </a> 
+                        de nuestra empresa.
+                    </p>
+                    
+                    <label class="form-control">
+                        <input type="checkbox" name="checkbox" required/>Aceptar y continuar
+                    </label>
+                    <br>
+                    <input type="submit" value="Conectar"/>
+
+                </form>
+                <!-- <p class="info bt">Powered by MikroTik RouterOS</p> -->
+
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>
+            Empresa C.A.
+            <br>
+            2024. &copy Todos los derechos reservados.
+        </p>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,20 @@
+{% extends 'layout.html' %}
+
+
+{% block content %}
+<h1 class="title">{% block title %} Clientes {% endblock %}</h1>
+    <div class="content">
+        {% for cliente in clientes %}
+            <div class="clientes">
+                <p><b>#{{ cliente.Id }}</b></p>
+                <b>
+                    <p class="name">Nombre: {{ cliente.Name }}</p>
+                </b>
+                <p>Correo Electrónico: {{ cliente.Email }}</p>
+                <p>Número Telefónico: {{ cliente.Phone_Number }}</p>
+                <p>Sesión Creada: {{ cliente.Date_Created }}</p>
+            </div>
+        {% endfor %}
+        
+    </div>
+{% endblock %}
